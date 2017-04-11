@@ -11,7 +11,7 @@ import XCTest
 class AppPruebaUITests: XCTestCase {
         
     override func setUp() {
-        super.setUp()
+        //super.setUp()
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
@@ -29,8 +29,23 @@ class AppPruebaUITests: XCTestCase {
     }
     
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+        
+        app.buttons["Tap to Change Color"].tap()
+        
+        //XCTAssert(app.staticTexts ["Hola Mundo"].exists)
+        
+        XCTAssert(app.buttons["Button"].exists)
+        app.buttons["Button"].tap()
+        if (app.buttons["Button"].exists){
+        //XCTFail("error al entrar")
+            
+            NSLog("Element was not found:")
+        }
+        
+        XCTAssert(app.staticTexts ["Hola Mundo"].exists)
+        
     }
     
 }
